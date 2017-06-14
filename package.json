@@ -2,6 +2,7 @@
   "name": "supermarket",
   "version": "0.1.0",
   "private": true,
+  "engines.node": "8.1.0",
   "dependencies": {
     "antd": "^2.11.0",
     "leancloud-storage": "^2.5.0",
