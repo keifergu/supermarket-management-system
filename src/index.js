@@ -18,7 +18,6 @@ import AV from 'leancloud-storage';
 const appId = 'Nm3hDM8b75jzvnJV7fEOdDRv-gzGzoHsz';
 const appKey = '4KCuUxCOkAj0KjqpBWRjEOfs';
 AV.init({ appId, appKey });
-localStorage.setItem('debug', 'leancloud*');
 
 ReactDOM.render(
 	<Router>

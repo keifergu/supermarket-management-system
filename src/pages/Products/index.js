@@ -5,16 +5,6 @@ import AV from 'leancloud-storage';
 const appId = 'Nm3hDM8b75jzvnJV7fEOdDRv-gzGzoHsz';
 const appKey = '4KCuUxCOkAj0KjqpBWRjEOfs';
 AV.init({ appId, appKey });
-const ProductsObject = AV.Object.extend('Products');
-const productsObject = new ProductsObject();
-
-productsObject.save({
-  name:'娃哈哈矿泉水 500ml',
-  amount: 20,
-  price: 1
-})
-
-
 
 const columns = [{
   title: '编号',
@@ -30,7 +20,7 @@ const columns = [{
   dataIndex: 'amount',
   key: 'amount',
 }, {
-  title: '单价',
+  title: '单价(元)',
 	dataIndex: 'price',
   key: 'price',
 }];
@@ -47,7 +37,6 @@ export default class Products extends Component {
 	fetchProducts() {
 		var query = new AV.Query('Products');
 		query.find().then(items => {
-			console.log(items)
 			let products = items.map(item => ({
 				...item.attributes,
 				cid: item.cid,
