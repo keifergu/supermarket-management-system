@@ -29,10 +29,18 @@ export default class Products extends Component {
 		})
 	}
 	changeProduct() {
-		
+
 	}
 	deleteProduct() {
 
+	}
+	handleDelete = (record) => {
+		const index = this.state.products.findIndex( v => {
+			return v.id === record.id
+		})
+		const products = this.state.products;
+		products.splice(index, 1)
+		this.setState({products});
 	}
 	handleTableChange = (record, e) => {
 		const value = e.target.value;
@@ -109,7 +117,7 @@ export default class Products extends Component {
 					      		}})
 					      }}
 					      />
-					      <Button type="danger" icon="delete" />
+					      <Button type="danger" icon="delete" onClick={()=>this.handleDelete(record)}/>
 					    </ButtonGroup>
 				    }
 			    </span>
